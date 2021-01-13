@@ -1,0 +1,33 @@
+name of case:   3d_j7
+
+3d_j7.c contains:
+
+number of atomic states   =     5
+number of configurations  =     4
+number of ang. symmetries =     5
+
+corresponding LS values:
+
+number of configurations  =     4
+number of ang. symmetries =     5
+
+get_tr_coef provide:
+
+total number of transition coefficients =       25
+non-zero transition coefficients =       23    92.0 %
+
+get_LS_conf provide:
+
+number of LS atomic states   =     5
+
+file 3d_j7_LS.c is recorded
+
+
+file for transformation coefficients is created
+
+
+
+solution in c-file:  JJ_norm =     1.00000  LS_norm =     1.00000
+
+file 3d_j7.c with coefficients is recorded
+
