@@ -1,0 +1,47 @@
+ci_bnk calculations:
+
+case:  cv1
+
+ATOM = Fe    
+TERM = AV    
+
+NUCLEAR CHARGE =   26.00
+
+Parameters of calculations:
+
+relativistic corrections are included for:
+
+relativistic one-electron shift
+spin-orbit interaction
+
+max. 2J+1 =      8
+min. 2J+1 =      2
+
+Number of required eigenvalues:  ALL 
+
+Parameters of c-list:
+
+NCFG   =   61  - number of configurations
+NZERO  =   61  - zero-order subset
+NTERMS =    1  - number of terms
+NCLOSD =    3  - number of common closed shells
+NE     =    9  - number of electrons
+
+one-electron orbitals: nwf    =    7
+
+   1s   2s   2p   3s   3p   3d   4f
+
+ECORE  =  -1147.75617199
+
+Non-trivial total overlaps with eps_o:   0.30000
+
+***
+
+Non-trivial normalization with eps_d:   0.00100
+
+
+NORT = 0 --> simple eigenvalue problem
+
+
+Time of calculations =      0.00  min
+

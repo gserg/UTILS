@@ -1,0 +1,88 @@
+merge =  a                                                                               
+
+eps   =  0.10000D-05
+
+jmin  =  -1
+
+jmax  =  -1
+
+input  1  ->  3s3p2_2S.c
+input  2  ->  3s3p2_2D.c
+input  3  ->  3s3p2_4P.c
+input  4  ->  3s3p2_2P.c
+
+------------------------------------------------------------------------
+
+    1.  3s3p2_2S
+
+ nwf =    8
+
+  1s  2s  2p  3s  3p  4p  4d  4s
+ 
+ 3s  -->  3s1    new orbitals and new k    0.000000000
+ 3p  -->  3p1    new orbitals and new k    0.000000000
+ 4s  -->  4s1    new orbitals but old k    0.000000000
+ 4p  -->  4p1    new orbitals but old k    0.000000000
+ 4d  -->  4d1    new orbitals and new k    0.000000000
+ 4f   the excessive orbital
+ 5s   the excessive orbital
+------------------------------------------------------------------------
+
+    2.  3s3p2_2D
+
+ nwf =   10
+
+  1s  2s  2p  3s  3p  3d  4d  4f  4p  4s
+ 
+ 1s  -->  1s     same                      0.000000038
+ 2s  -->  2s     same                      0.000000003
+ 2p  -->  2p     same                      0.000000000
+ 3d  -->  3d2    new orbitals and new k    0.883269244
+ 3s  -->  3s2    new orbitals and new k    0.999808162
+ 3p  -->  3p2    new orbitals and new k    0.989067350
+ 4s  -->  4s2    new orbitals but old k    0.000000000
+ 4p  -->  4p2    new orbitals but old k    0.000000000
+ 4d  -->  4d2    new orbitals but old k    0.000000000
+ 4f  -->  4f1    new orbitals and new k    0.000000000
+------------------------------------------------------------------------
+
+    3.  3s3p2_4P
+
+ nwf =    6
+
+  1s  2s  2p  3s  3p  4d
+ 
+ 1s  -->  1s     same                      0.000000038
+ 2s  -->  2s     same                      0.000000003
+ 2p  -->  2p     same                      0.000000000
+ 3s  -->  3s3    new orbitals and new k    0.999995134
+ 3p  -->  3p3    new orbitals and new k    0.999154123
+ 4s   the excessive orbital
+ 4p   the excessive orbital
+ 4d  -->  4d3    new orbitals and new k    0.909787429
+ 4f   the excessive orbital
+------------------------------------------------------------------------
+
+    4.  3s3p2_2P
+
+ nwf =    9
+
+  1s  2s  2p  3s  3p  4d  4p  4f  4s
+ 
+ 1s  -->  1s     same                      0.000000038
+ 2s  -->  2s     same                      0.000000003
+ 2p  -->  2p     same                      0.000000000
+ 3s  -->  3s4    new orbitals and new k    0.999838487
+ 3p  -->  3p4    new orbitals and new k    0.999049979
+ 4s  -->  4s4    new orbitals but old k    0.000000000
+ 4p  -->  4p4    new orbitals but old k    0.000000000
+ 4d  -->  4d4    new orbitals and new k    0.969685029
+ 4f  -->  4f2    new orbitals and new k    0.979782152
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+nrf =    24
+
+ 1s  2s  2p  3s1 3p1 4s1 4p1 4d1 3d2 3s2 3p2 4s2 4p2 4d2
+ 4f1 3s3 3p3 4d3 3s4 3p4 4s4 4p4 4d4 4f2
+------------------------------------------------------------------------
