@@ -3,8 +3,8 @@
 include ${HOME}/DEFS_03
 
 all: bsw_rw       dbound_bsw    dbound_tab    dbsr_merge   \
-	dbsw123      rw123         rw_bsw        rw_dat       \
-	zf_bb        zf_cc
+     dbsw123      rw_bsw        rw_dat        rw123        \
+     zf_bb        zf_cc
 
 # dbsw_tab
 
@@ -27,10 +27,6 @@ dbsr_merge: dbsr_merge.f90
 dbsw123: dbsw123.f90
 	$(FC) -o $@ $(link) $< $(DBS) $(ZCONFJJ) $(ZCOM)
 	mv $@ $(BINDIR)
-
-#dbsw_tab: dbsw_tab.f90
-#	$(FC) -o $@ $(link) $< $(DBS) $(ZCONFJJ) $(ZCOM)
-#	mv $@ $(BINDIR)
 
 rw123: rw123.f90
 	$(FC) -o $@ $(link) $< $(ZCONFJJ) $(ZCOM)

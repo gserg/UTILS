@@ -2,12 +2,23 @@
 
 include ${HOME}/DEFS_03
 
-all:  f_values_jj     sec_dif_JJ     sec_dif_JJ_ampl  \
-      sum_hh_jj       targ_jj        targ_jj_exp
+all:  f_values_jj     get1tdonejj       gettdonejj   \
+      sec_dif_JJ      sec_dif_JJ_ampl   sum_hh_jj    \
+      targ_jj         targ_jj_exp
 
 f_values_jj: f_values_jj.f90
 	$(FC) -o $@ $(link) $<  $(ZCONFJJ) $(ZCOM)
 	mv $@ $(BINDIR)
+
+get1tdonejj: get1tdonejj.f90
+	$(FC) -o $@ $(link) $<  $(ZCONFJJ) $(ZCOM)
+	mv $@ $(BINDIR)
+	rm *.mod
+
+gettdonejj: gettdonejj.f90
+	$(FC) -o $@ $(link) $<  $(ZCONFJJ) $(ZCOM)
+	mv $@ $(BINDIR)
+	rm *.mod
 
 sec_dif_JJ: sec_dif_JJ.f90
 	$(FC) -o $@ $(link) $<  $(ZCONFJJ) $(ZCOM)

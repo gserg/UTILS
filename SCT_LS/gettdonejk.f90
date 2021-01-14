@@ -230,7 +230,7 @@
 '     based on the T-matrix elements given in "zarm.tma" file           ',&
 '     obtained with BSR in the JK-coupling, to be able to use them      ',&
 '     in the program MJK                                                ',&
-'                                                                       ',&                                                                           '                                                                       ',&
+'                                                                       ',&  
 '              zarm.tma + target   ->    tmat.done                      ',&
 '                                                                       ',&
 '     Call as: gettdonejk  itr1=.. itr2=.. ek1=.. ek2-.. eps_e=..       ',&

@@ -34,6 +34,7 @@
       Open(iout,file=AF)
 
     1 read(in,end=2) AT,TT,EL,M,ZT,ETI,EKI,AZI,(PT(J),J=1,M) 
+      if(m.eq.0) go to 2
       WRITE(iout,'(A6,A6,3X,A3,I6,F6.2,3(1PE18.10))')  &
                    AT,TT,EL,M,ZT,ETI,EKI,AZI
       WRITE(iout,'(4(1PE18.10))') (PT(J),J=1,M)

@@ -3,8 +3,7 @@
 include ${HOME}/DEFS_03
 
 all: cm_j         coef_jj    genjconf    genjterm     \
-	jcfile       jfile      jj_list     mult_jj      \
-	order_jj     
+     jcfile       jfile      jj_list     mult_jj      order_jj     
 
 cm_j: cm_j.f90
 	$(FC) -o $@ $(link)  $<  $(ZCONFJJ) $(ZCOM) 

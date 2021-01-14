@@ -34,10 +34,6 @@ merge: merge.f90
 	$(FC) -o $@ $(link) $<  $(RADIAL) $(ZCONFLS) $(ZCOM)
 	mv $@ $(BINDIR)
 
-mfile: mfile.f90
-	$(FC) -o $@ $(link) $<  $(RADIAL) $(ZCONFLS) $(ZCOM)
-	mv $@ $(BINDIR)
-
 order_c: order_c.f90
 	$(FC) -o $@ $(link) $<  
 	mv $@ $(BINDIR)

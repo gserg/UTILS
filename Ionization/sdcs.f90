@@ -405,7 +405,7 @@
 
       eq(0,ion) =  eq(1,ion) - he 
       sdcs(0,ion) =  XLAGR(klagr,nq,eq(1,ion),sdcs(1,ion),eq(0,ion))
-      sdcs(2*nq) =  sdcs(0,ion)
+      sdcs(2*nq,ion) =  sdcs(0,ion)
 
       if (i16.eq.0)  he = he /(2*Ry)  !   ???
 

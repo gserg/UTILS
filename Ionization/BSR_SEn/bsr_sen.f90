@@ -58,7 +58,7 @@
 
       Implicit real(8) (A-H,O-Z)
 
-      Call CPU_timer(t1)
+      Call CPU_time(t1)
 
 ! ... read arguments:
     

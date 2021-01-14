@@ -48,7 +48,7 @@
       Call Read_name(AF_w)
       iarg = command_argument_count()
  
-      if(iarg.lt.1.or.name.eq.'?') then
+      if(iarg.lt.1.or.AF_w.eq.'?') then
         write(*,*) 
         write(*,*) 'rw_bsw:   convert the GRASP w-file to DBSR bsw-file'
         write(*,*) 

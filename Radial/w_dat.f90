@@ -42,6 +42,7 @@
 
       nrf=0;  mm=0
    1  read(in,end=2) atom,term,el3,m,Z
+      if(m.eq.0) go to 2
       nrf=nrf+1
       if(m.gt.mm) mm=m
       go to 1

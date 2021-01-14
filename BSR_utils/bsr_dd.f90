@@ -2,7 +2,9 @@
 !     bsr_dd - utility for calculation of dipole matrix elements
 !              between R-matrx states saved in rsol.nnn files
 !======================================================================
-!     OUTPUT:   dd_nnn_mmm
+!     INPUT:    target, cfg.nnn, rsol.nnn
+!
+!     OUTPUT:   dd_nnn_mmm, d00
 !
 !     SYSTEM CALLS:   MULT3,  BSR_DMAT3
 !---------------------------------------------------------------------
@@ -86,5 +88,5 @@
       Close(82)
       Close(81,status='DELETE') 
 
-      End ! program dd_bsr
+      End ! program bsr_dd
 

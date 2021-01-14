@@ -3,7 +3,7 @@
 include ${HOME}/DEFS_03
 
 all: add_farm            add_stgf          add_stgfb         adf04          \
-     beb_ion             delete_data       eff_cstrn         get1tdonejj    \
+     beb_ion             delete_data       eff_cstrn                        \
      gettdonejk          gettdoneLS        kma_om            kma_phase      \
      kma_phase_lsp       oma_omb           sec_cascb         sec_dif_JK     \
      sec_dif_JK_ampl     sec_dif_LS        sec_dif_LS_tdone  sec_omn        \
@@ -37,10 +37,6 @@ delete_data: delete_data.f90
 
 eff_cstrn: eff_cstrn.f90
 	$(FC) -o $@ $(link) $<  $(ZCONFLS) $(ZCOM)
-	mv $@ $(BINDIR)
-
-get1tdonejj: get1tdonejj.f90                               
-	$(FC) -o $@ $(link) $<  $(ZCONFJJ) $(ZCOM)
 	mv $@ $(BINDIR)
 
 gettdonejk: gettdonejk.f90                               
