@@ -31,7 +31,7 @@
         write(*,'(/a)') 'bsw - BSR format for radial functions'
         write(*,'(/a)') 'Call as:  bsw_w  name.bsw '
         write(*,'(/a)') 'Results:  name.w'
-        write(*,'(/a)') 'Warning:  set index in bsw-files may be too big for name.w format'
+        write(*,'(/a)') 'Warning:  set index in bsw-files if any may be too big for name.w format'
         Stop 
       end if
 

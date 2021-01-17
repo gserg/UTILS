@@ -282,11 +282,11 @@
 
       Character(80) :: A=' '
 
-      iarg = IARGC()
-      if(iarg.gt.0) Call GETARG(1,A)
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,A)
       if(A.ne.'?')  Return
 
-      write(*,*) &
+      write(*,'(a)') &
 '                                                              ',&
 'zf_tab creates tables for f-values and tau:                   ',&
 '                                                              ',&
@@ -296,8 +296,6 @@
 '                                                              ',&
 'eps_e  - tolerance for equal energies     [1.d-8]             ',&
 'eps_f  - tolerance for output of f-values [1.d-6]             ',&
-'                                                              ',&
-'                                                              ',&
 '                                                               '
       Stop ' '
 

@@ -15,7 +15,7 @@
 !                                 g0=...  hg=...   ng=...   diff=...
 !
 !      This program, in contrast to the previous version, read all T-matrix 
-!      in memeory. It may require a big memory !!!
+!      in memeory. It may require a big memory !
 !============================================================================
       Use target
       Use channels
@@ -39,6 +39,8 @@
       Real(8), allocatable :: G(:), DCS(:), DD(:)
 
       Integer, external :: Def_ij
+
+      Call Inf_sub
 
       PI  = abs(ACOS(-1.d0))
       open(pri,file=AF_log)
@@ -271,3 +273,34 @@
       End  ! program dif_secT_He
 
 
+!======================================================================
+      Subroutine inf_sub
+!======================================================================
+!     provide screen information about add_farm utility
+!----------------------------------------------------------------------
+      Character(80) :: A
+
+      Call get_command_argument(1,A)  
+      if(A.ne.'?') Return
+
+      write(*,'(a)') &
+'                                                                  ',&
+'This utility calulates DCS and scattering amplitudes (LS coupling)',&
+'for scattering on neutral atoms with closed subshells (as He).    ',&
+'                                                                  ',&
+'Input:     T-matrixes (zarm.tmb), target information (target)     ',&
+'                                                                  ',&
+'Call as:   dif_sec_He   ek=..  res=..  tm=.. g0=.. hg=.. ng=..    ',&
+'                                                                  ',&
+'ek         - initial electron energy in Ry                        ',&
+'                                                                  ',&
+'g0 [0]     - initial degree                                       ',&
+'hg [1]     - step over defrees                                    ',&
+'ng [181]   - number of dergee points                              ',&
+'                                                                  ',&
+'tm [zarm.tmb] - T-matrix file                                     ',&
+'res [difsec_He] - file for final DCS and scattering amplitudes    ',&
+'                                                                  '
+    Stop 
+                         
+    End Subroutine inf_sub

@@ -192,7 +192,7 @@
 '     mstate [0]  - maximum number of states for one partial wave                  ',&
 '                   (0 means all)                                                  ',&
 '                                                                                  ',&
-'     Examples:  bound_tab  Z=14  mstate=20  klsp1=1  klsp2=12  E0=...             ',&
+'     Examples:  bound_tab                                                         ',&
 '                bound_tab  klsp=5                                                 ',&
 '                bound_tab  Z=14  mstate=20  klsp1=1  klsp2=12  E0=...             ',&
 '                                                                                  '

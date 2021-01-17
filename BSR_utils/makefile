@@ -6,7 +6,7 @@ all: bound_bsw      bound_tab         bs_hwf          bsr_dd           \
      bsw123         bsw_tab           bsw_w           collect_rsol     \
      f_values       h_targb           h_targn         photo_collect    \
      photo_tab      print_bs          s_values        sum_hh           \
-     target_exp     target_kpert      target_states   w_bsw            \
+     target_exp     target_states     w_bsw                            \
      zf_bb_bsr      zf_cc_bsr                         
                                                       
 #    zf_cc_bsr_mpi.f90

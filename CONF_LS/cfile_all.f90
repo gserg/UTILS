@@ -39,9 +39,10 @@
 
 !----------------------------------------------------------------------
 !                                                           input data:
-      iarg = COMMAND_ARGUMENT_COUNT() 
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AF)
 
-      if(iarg.lt.1) then
+      if(AF.eq.'?'.or.iarg.lt.1) then
         write(*,'(/a)') 'cfile_all extracts the solutions from l(j)-file in separate c-file' 
         write(*,'(/a)') 'Call as:    cfile name.l(j) msol=... eps= '
         write(*,'(/a)') 'name.l(j) - input file with solutions'

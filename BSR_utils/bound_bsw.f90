@@ -71,6 +71,7 @@
         'bound_bsw  klsp=  sol=... name=... [mode=...]' 
        write(*,'(/a,a,a)') 'or use bound_bsw.inp with ',  &
         'klsp  sol  name values for each state in one line, with * marks the end of the list' 
+       write(*,'(/a,a,a)') 'Such file is easy to create from "bound_tab"'
        write(*,'(/a)') 'klsp - partial wave index'
        write(*,'( a)') 'sol  - solution index'
        write(*,'( a)') 'name - results will be in name.c and name.bsw files'

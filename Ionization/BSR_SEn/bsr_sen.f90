@@ -60,6 +60,8 @@
 
       Call CPU_time(t1)
 
+      Call bsr_sen_inf
+
 ! ... read arguments:
     
       Call Read_data
@@ -154,7 +156,7 @@
        if(nhm_b.ne.nhm) Stop 'BSR_SE: different nhm in bound.nnn'
 
 ! ... cycle over pseudostates:
-write(91,*) 'klsp,nbound',klsp,nbound
+
        Do ib=1,nbound
         read(nub) jb, labl; read(nub) E; read(nub) v
         if(E.gt.Eps(nps)+eps_e) Exit
@@ -163,17 +165,12 @@ write(91,*) 'klsp,nbound',klsp,nbound
 
        is = 0
        Do i=1,nps
-write(91,*) 'L',i,lps(i),lpar(klsp)
         if(lps(i).ne.lpar (klsp))  Cycle 
-write(91,*) 'S',i,sps(i),ispar(klsp)
         if(sps(i).ne.ispar(klsp))  Cycle
-write(91,*) 'P',i,pps(i),ipar(klsp)
         if(pps(i).ne.ipar (klsp))  Cycle
-write(91,*) 'E',i,Eps(i),E,abs(Eps(i)-E)
         if(abs(Eps(i)-E).gt.eps_e) Cycle
         is = i; Exit
        End do
-write(91,*) 'ib,is',ib,is
        if(is.eq.0) Cycle 
 
 ! ... warning:
@@ -211,3 +208,36 @@ write(91,*) 'ib,is',ib,is
       End do
 
       End Subroutine Sub1
+
+
+!======================================================================
+      Subroutine bsr_sen_inf
+!======================================================================
+!     provide screen information about bsr_sen utility
+!----------------------------------------------------------------------
+      Character(80) :: A
+
+      Call get_command_argument(1,A)  
+      if(A.ne.'?') Return
+
+      write(*,'(a)') &
+'                                                                                  ',&
+'     BSR_SE2 provide the overlaps between the pseudostates and continuum          ',&
+'     functions for the given incident energy (output file projections),           ',&
+'     including both direct and exchange cases, for set of ejected energies        ',&
+'                                                                                  ',&
+'     Call as:    bsr_sen  EK=..  EL=.. itarg=..  out=..                           ',&
+'                                                                                  ',&
+'     EK  -  energy of incident electron in Ry                                     ',&
+'     nq  -  number of ejected energies equaly devided all posssible interval      ',&
+'     itarg - index of ionic state                                                 ',&
+'     out   - name of output file [projection2]                                    ',&
+'                                                                                  ',&
+'     Calculations should be done in the folder of BSR calculations  for the       ',&
+'     ejected electron - many files are using, see remarks in bsr_sen.f90          ',&
+'                                                                                  '
+      Stop ' '                                                                    
+                                                                                   
+      End Subroutine bsr_sen_inf                                                 
+
+

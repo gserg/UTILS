@@ -32,7 +32,8 @@
       Call read_aarg('inp',AF_inp)
       Call read_aarg('out',AF_out)
 
-      iarg = IARGC(); if(iarg.gt.0) Call Getarg(1,AS)
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AS)
       if(AS.eq.'?'.or.Icheck_file(AF_inp).eq.0) then
         write(*,'(/a)') 'zgenconf generates list of configurations (conf.inp)'
         write(*,'(/a)') 'based on the allowed occupation numbers (electron.inp)'
@@ -41,6 +42,8 @@
         write(*,'(/a)') 'Results:  conf.inp'
         write(*,'(/a)') 'mo - optional restriction on the number of shells'
         if(Icheck_file(AF_inp).eq.0) Call Create_electron_inp 
+        write(*,'(/a)') 
+        Stop
       end if
 
 !---------------------------------------------------------------------

@@ -5,7 +5,7 @@
 !
 !     Written by:   Oleg Zatsarinny,   email: oleg_zoi@yahoo.com
 !======================================================================
-!     for selected states, print (to file mult_jj.tab)  the integral 
+!     for selected states, print (to file mult_jj.tab)  the angular 
 !     coefficients according to "mult_bnk" file
 !
 !     Call as:
@@ -56,6 +56,33 @@
 
       Integer :: parity1, parity2
 
+!--------------------------------------------------------------------------
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AF)
+ 
+      if(AF.eq.'?'.or.AF.eq.'!') then
+        write(*,*) 
+        write(*,*) 'for selected states, print (to file mult_jj.tab)  the angular' 
+        write(*,*) 'coefficients according to "mult_bnk" file'
+        write(*,*)
+        write(*,*) 'Call as:'
+        write(*,*)
+        write(*,*) 'mult_jj  c1=.. c2=..  bnk=..  tab=.. jort=..  ic=..  jc=..'
+        write(*,*)
+        write(*,*) 'all parameters - optional, with default values:'
+        write(*,*)
+        write(*,*) 'c1  = cfg.inp'
+        write(*,*) 'c2  = cfg.out'
+        write(*,*) 'bnk = mult_bnk_E1'
+        write(*,*) 'tab = mult_jj.tab'
+        write(*,*)
+        write(*,*) 'jort = 1 -> partial orthogonality'
+        write(*,*)
+        write(*,*) 'ic = 0   -> all initial states'
+        write(*,*) 'jc = 0   -> all final states'
+        write(*,*)
+        Stop ' '
+       end if
 !----------------------------------------------------------------------
 !                                                                files:
 ! ... c-files:

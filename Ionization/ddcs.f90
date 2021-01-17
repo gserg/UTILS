@@ -539,19 +539,14 @@ CONTAINS
 !======================================================================
 !     provide screen information about add_farm utility
 !----------------------------------------------------------------------
-       
-      Implicit real(8) (a-h,o-z)
-
       Character(80) :: A
 
-      iarg = IARGC()
-      if(iarg.gt.0) Call GETARG(1,A)      
-      if(iarg.eq.0) A='?'
+      Call get_command_argument(1,A)  
       if(A.ne.'?') Return
 
-      write(*,*) &
+      write(*,'(a)') &
 '                                                                  ',&
-'tdcs calculates triple differential cross section for ionization  ',&
+'ddcs calculates double differential cross section for ionization  ',&
 'of He or other closed-shell atoms, using the projection method    ',&
 '                                                                  ',&
 'Input parameters and files (provided as  par=... ):               ',&
@@ -559,26 +554,16 @@ CONTAINS
 'ion    [target_ion]  - description of (e-A+) scattering           ',&
 'dcs    [difsec_He ]  - collection of scattering amplitudes for    ',&
 '                       (e+A), for each pseudosctate at given E0   ',&
-'p1     [projection2] - projection coefficients for each psedostate',&
-'                       to the continuum (e-A+) at E = E_ejected   ',&
-'p2     [projection1] - projection coefficients for each psedostate',&
+'p2     [projection2] - projection coefficients for each psedostate',&
 '                       to the continuum (e-A+) at E = E_scattering',&
-'ig1    [10]          - teta_1 (in degrees)                        ',&
-'i16    [0]           - units for TDCS, 0 -> a.u.                  ',&
+'i16    [0]           - units for DDCS, 0 -> a.u.                  ',&
 'mode   [2]           - mode for adding of direct and exchange     ',&
 '                       0 - incoherent                             ',&
 '                       1 - coherent                               ',&
 '                       2 - spin-dependent                         ',&
-'df     [10]          - step in fi angle  (in output .all)         ',&
-'dt     [10]          - step in teta angle (in output .all)        ',&
 'itagr  [1]           - ion target state                           ',&
-'icorr  [1]           - flag for correlation k1/k1_p_s             ',&
 '                                                                  ',&
-'Output files:                                                     ',&
-'                                                                  ',&
-'tdcs_E0_E2_teta_targ.all  (total output: fi, teta, tdcs)          ',&
-'tdcs_E0_E2_teta_targ.xyz  (total output as surface in x,y,z       ',&  
-'tdcs_E0_E2_teta_targ.sec  (cross sections in zx, zy, xy planes)   ',&
+'Output files:        - ddcs.out or given by argument out=..       ',&
 '                                                                  '
     Stop 
                          

@@ -23,10 +23,10 @@
 
       Call get_command_argument(1,BF)  
       if(BF.eq.'?') then
-        write(*,'(/a)') 'h_targb creates "target" file based on the "nnn/H.DAT" ', &
-                         ' or nnn/h.nnn files plaesed in the set of sub-directories'
-        write(*,'(/a)') '  all nnn/H.DAT  -->  target.h  (BSR-format)'
-        write(*,'(/a)') 'Call as:  h_targb  klsp=...]'
+        write(*,'(/a)') 'h_targn creates "target" file based on the "nnn/H.DAT" ', &
+                         ' or nnn/h.nnn files plased in the set of sub-directories nnn'
+        write(*,'(/a)') '   {nnn/H.DAT} or {nnn/h.nnn}  -->  target.h  (BSR-format)'
+        write(*,'(/a)') 'Call as:  h_targn  klsp=...'
         write(*,'(/a/)') 'klsp - number of partial waves'
         Stop ' '
       end if

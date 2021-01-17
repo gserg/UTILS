@@ -2,7 +2,7 @@
 !     UTILITY  SDCS
 !=====================================================================
 !
-!     triple differential cross section for ionization of He or other
+!     single differential cross section for ionization of He or other
 !     closed-shell atoms with projection method
 !
 !     Input files:
@@ -16,9 +16,7 @@
 !                   and at  at EL1 = E_scattering
 !                   (projection files define the EL2 and EL1 energies)
 !
-!     Output files:
-!
-!      sdcs.out      
+!     Output files:  sdcs.out
 !
 !---------------------------------------------------------------------
 
@@ -607,7 +605,7 @@ CONTAINS
       if(iarg.eq.0) A='?'
       if(A.ne.'?') Return
 
-      write(*,*) &
+      write(*,'(a)') &
 '                                                                  ',&
 'sdcs calculates single-differential cross section for ionization  ',&
 'of He or other closed-shell atoms, using the projection method    ',&
@@ -617,9 +615,6 @@ CONTAINS
 'ion    [target_ion]  - description of (e-A+) sct. system          ',&
 'dcs    [difsec_He ]  - collection of scattering amplitudes for    ',&
 '                       (e+A), for each pseudosctate at given E0   ',&
-'iion   [???]         - number of true bound states                ',&
-'                                                                  ',&
-'                                                                  ',&
 'p      [projections] - projection coefficients for each psedostate',&
 '                       to the continuum (e-A+) at E = E_ejected   ',&
 '                       and E = E_scattering (after BSR_SEn ???)   ',&
@@ -628,14 +623,8 @@ CONTAINS
 '                       0 - incoherent                             ',&
 '                       1 - coherent                               ',&
 '                       2 - spin-dependent                         ',&
-'df     [10]          - step in fi angle  (in output .all)         ',&
-'dt     [10]          - step in teta angle (in output .all)        ',&
 'itagr  [1]           - ion target state                           ',&
 'icorr  [1]           - flag for correlation k1/k1_p_s             ',&
-'iexch  [1]           - ???                                        ',&
-'klagr  [3]           - ???                                        ',&
-'                                                                  ',&
-'                                                                  ',&
 '                                                                  ',&
 'Output files:                                                     ',&
 '                                                                  ',&

@@ -81,7 +81,6 @@
 ! ... input parameters:
 
       Call Read_aarg('inp',AFi)
-      iarg =  IARGC()
 
       if(Icheck_file(AFi).ne.0) then
 
@@ -469,8 +468,9 @@ CONTAINS
 
       Character(80) :: A=' '
 
-      iarg = IARGC()
-      if(iarg.gt.0) Call GETARG(1,A)
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,A)
+ 
       if(A.ne.'?')  Return
 
       write(*,'(a)') &
@@ -491,7 +491,7 @@ CONTAINS
 '            ci_list  inp=b.inp                                ',&
 '            ci_list  a.j b.j  c.j ... unit=eV  msol=10        ',&
 '                                                              ',&
-'Example input file [ci_list.inp]:                             ',&
+'Example of input file [ci_list.inp]:                          ',&
 '                                                              ',&
 'name1.j(l)                                                    ',&
 'name2.j(l)                                                    ',&
@@ -505,7 +505,6 @@ CONTAINS
 'shift = 1000   ! (shift=1 means shift=-E1)                    ',&
 '                                                              ',&
 'All parameters are optional                                   ',&
-'                                                              ',&
 '                                                               '
       Stop ' '
 

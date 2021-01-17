@@ -23,6 +23,18 @@
       Character(80) :: AF_res, AF,BF,  AF_states = 'states_selected'
 
       me=ke; Allocate(e(me),ev(me)) 
+
+      Call get_command_argument(1,AF)  
+      if(AF.eq.'?') then
+       write(*,'(/a)') 'produces the tables for channel or total cross sections and asymmetry parameters'   
+       write(*,'(/a)') 'INPUT:    {bsr_phot.nnn}, target'
+       write(*,'(/a)') 'OUTPUT:   indicated by user '
+       write(*,'(/a)') 'Call as:  photo_tab    with interactive response'
+       write(*,'(/a)') 'For numerous output options see the documentation'
+       write(*,*)
+       Stop 
+      end if
+
 !----------------------------------------------------------------------
 ! ... target information:
 

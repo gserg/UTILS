@@ -56,6 +56,8 @@
 
       Call CPU_time(t1)
 
+      Call bsr_se2_inf
+
 ! ... read arguments:
     
       Call Read_data
@@ -199,3 +201,35 @@
       write(*,'(i5,a)') ii,' psedostates are not covered' 
 
       End Subroutine Sub1
+
+!======================================================================
+      Subroutine bsr_se2_inf
+!======================================================================
+!     provide screen information about bsr_se2 utility
+!----------------------------------------------------------------------
+      Character(80) :: A
+
+      Call get_command_argument(1,A)  
+      if(A.ne.'?') Return
+
+      write(*,'(a)') &
+'                                                                                  ',&
+'     BSR_SE2 provide the overlaps between the pseudostates and continuum          ',&
+'     functions for the given energy (output file projection2), including both     ',&
+'     direct and exchange cases                                                    ',&
+'                                                                                  ',&
+'     Call as:    BSR_SE2  EK=..  EL=.. itarg=..  out=..                           ',&
+'                                                                                  ',&
+'     EK  -  energy of incident electron in Ry                                     ',&
+'     EL  -  energy of ejected electron in eV                                      ',&
+'     itarg - index of ionic state                                                 ',&
+'     out   - name of output file [projection2]                                    ',&
+'                                                                                  ',&
+'     Calculations should be done in the folder of BSR calculations  for the       ',&
+'     ejected electron - many files are using, see remarks in bsr_se2.f90          ',&
+'                                                                                  '
+      Stop ' '                                                                    
+                                                                                   
+      End Subroutine bsr_se2_inf                                                 
+
+

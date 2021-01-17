@@ -19,6 +19,20 @@
       Character(1)  :: blank = ' '
       Character(80) :: AS,BS,BI,BJ,AF
 
+! ... short instructions:
+
+      Call get_command_argument(1,AF)  
+      if(AF.eq.'?') then
+       write(*,'(/a)') 'bsr_dd - utility for calculation of dipole matrix elements '   
+       write(*,'(a)')  'between R-matrx states saved in rsol.nnn files'
+       write(*,'(/a)') 'INPUT:    target, cfg.nnn, rsol.nnn'
+       write(*,'(/a)') 'OUTPUT:   dd_nnn_mmm, d00,  where nnn,mmm - indexes of partial waves'
+       write(*,'(/a)') 'Call as:  bsr_dd  [klsp=..]'
+       write(*,'(/a)') 'where you may indicate the maximum partial wave "klsp"'
+       write(*,*)
+       Stop 
+      end if
+
 ! ... read target and channels information:
 
       Call Check_file(AF_tar)

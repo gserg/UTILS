@@ -32,8 +32,12 @@
 
       Call GET_COMMAND_ARGUMENT(1,name)
 
-      if(name.eq.'?'.or.command_argument_count().lt.1)  &
-      Stop 'Call as: jj2ls name, or name.c, or.name.j'
+      if(name.eq.'?'.or.command_argument_count().lt.1)  then
+       write(*,'(/a)') 'jj2ls transforms name.c and/or name.j in jj-coupling to'
+       write(*,'(a/)') 'name_LS.c and name_LS.j in LS-coupling'
+       write(*,'(a/)') 'Call as:  jj2ls  name  (or name.c, or name.j)'    
+       Stop ' '
+      end if 
 
       i=LEN_TRIM(name)
       if(name(i-1:i).eq.'.c'.or.name(i-1:i).eq.'.j') name(i-1:i)='  '

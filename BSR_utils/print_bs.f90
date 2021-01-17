@@ -1,7 +1,7 @@
 !======================================================================
     Program print_bs
 !======================================================================
-!   This utilty prints B-splines (in separate files bs_###)
+!   This utilty prints B-splines values (in separate files bs_###)
 !   for given "knot.dat" 
 !----------------------------------------------------------------------
     Use spline_atomic
@@ -11,6 +11,17 @@
     Implicit real(8) (A-H,O-Z)
     Character(20) :: AF
     Real(8), allocatable :: c(:)
+
+      Call get_command_argument(1,AF)  
+      if(AF.eq.'?') then
+       write(*,'(/a)') 'This utilty prints B-splines values (in separate files bs_###)'   
+       write(*,'(a)')  'for given "knot.dat" '
+       write(*,'(/a)') 'INPUT:    knot.dat'
+       write(*,'(/a)') 'OUTPUT:   {bs_nnn}'
+       write(*,'(/a)') 'Call as:  print_bs'
+       write(*,*)
+       Stop 
+      end if
 
     ! .. sets up the grid points:  array t in MOLULE spline_grid
 

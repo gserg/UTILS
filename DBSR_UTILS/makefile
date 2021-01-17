@@ -4,7 +4,7 @@ include ${HOME}/DEFS_03
 
 all: bsw_rw       dbound_bsw    dbound_tab    dbsr_merge   \
      dbsw123      rw_bsw        rw_dat        rw123        \
-     zf_bb        zf_cc
+     zf_cc
 
 # dbsw_tab
 
@@ -37,10 +37,6 @@ rw_bsw: rw_bsw.f90
 	mv $@ $(BINDIR)
 
 rw_dat: rw_dat.f90    
-	$(FC) -o $@ $(link) $< $(ZCONFJJ) $(ZCOM)
-	mv $@ $(BINDIR)
-
-zf_bb: zf_bb.f90
 	$(FC) -o $@ $(link) $< $(ZCONFJJ) $(ZCOM)
 	mv $@ $(BINDIR)
 

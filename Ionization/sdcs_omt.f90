@@ -85,7 +85,6 @@
       Call R_target_ion(nut)
       Call R_channels_ion(nut)
       Close(nut)
-
      
 !----------------------------------------------------------------------
 ! ... projection coefficients:

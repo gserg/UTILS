@@ -22,6 +22,17 @@
       Integer :: nu1=1; Character(40) :: AF_inp      ! initial c-file
       Integer :: nu2=2; Character(40) :: AF_out      ! resulting c-file
 
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AF)
+ 
+      if(AF.eq.'?'.or.AF.eq.'!') then
+       write(*,'(/a)') 'This utility moves the orbital from core to configurations'
+       write(*,'(/a)') 'Call as:  del_core  el=...  inp=... out=...'
+       write(*,'(/a)') 'el  - orbital to move'
+       write(*,'( a)') 'inp - input c-file'
+       write(*,'(a/)') 'out - output c-file'
+       Stop
+      end if
 !----------------------------------------------------------------------
 !                                                           input data:
 

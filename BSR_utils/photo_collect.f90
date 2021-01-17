@@ -2,7 +2,7 @@
 !     UTILITY   P H O T O _ C O L L E C T
 !======================================================================
 !     collect data from bsr_phot.nnnn files to bsr_phot.nnn file
-!     after MPI calculations if they not finnished correctly
+!     after MPI calculations if they not finnished timely
 !----------------------------------------------------------------------
  
       IMPLICIT REAL(8) (A-H,O-Z)
@@ -13,6 +13,23 @@
       Character(ma) :: AF,BF,AS   
 
       Character(60) :: AFORM
+
+      iarg = COMMAND_ARGUMENT_COUNT() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AF)
+
+      if(iarg.le.0.or.AF.eq.'?') then
+        write(*,'(/a)') 'collect data from bsr_phot.nnnn files to bsr_phot.nnn file'
+        write(*,'( a)') 'after MPI calculations if they not finnished timely'
+        write(*,'(/a)') '  {bsr_phot.nnnn, photo.nnnn}  -->  bsr_phot.nnn, photo.nnn'
+        write(*,'(/a)') 'Call as:  photo_collect  klsp=..  np=.. '
+        write(*,'(a)') 
+        write(*,'(a)') 'klsp - partial wave index, nnn'
+        write(*,'(a)') 'np   - number of processors,  nnnn = 0 - np-1'
+        write(*,'(a)') 
+        Stop ' '
+      end if        
+
+
 
       klsp = 1
       Call Read_iarg('klsp',klsp)

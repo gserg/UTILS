@@ -36,7 +36,7 @@
       Call inf_del_c
 !----------------------------------------------------------------------
 
-      iarg = IARGC()
+      iarg = command_argument_count() 
       if(iarg.ge.1)  Call GETARG(1,AF)
       if(iarg.ge.2)  Call GETARG(2,BF)
       if(iarg.ge.3)  Call GETARG(3,DF)
@@ -52,16 +52,13 @@
 
       i = Ifind_position(nud,'Non-trivial total overlaps')
       if(i.gt.0) read(nud,*)
-write(*,*) i
 
       if(LEN_TRIM(AS).gt.0) i = Ifind_position(nud,trim(DF))
 
    10 read(nud,'(a)',end=20) AS
       if(LEN_TRIM(AS).eq.0) go to 10
       if(AS(1:1).eq.'*') go to 20
-write(*,*) trim(AS)
       read(AS,*) ii
-write(*,*) ii
       if(ii.le.0.or.ii.gt.nc) go to 10
       idel(ii) = 1
       go to 10
@@ -158,11 +155,12 @@ write(*,*) ii
 
       Character(80) :: A
 
-      iarg = IARGC()
-      if(iarg.gt.0) Call GETARG(1,A)
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,A)
+ 
       if(iarg.eq.0.or.A.ne.'?')  Return
 
-      write(*,*) &
+      write(*,'(a)') &
 '                                                                 ',&
 'del_c deletes the configurations in c-file                       ',&
 '                                                                 ',&
@@ -173,11 +171,11 @@ write(*,*) ii
 '3. del_list      (one conf. index for a line, ending with * )    ',&
 '4. flag          indicate beginning of the list, optional        ',&
 '                                                                 ',&
-'Call as:  del_c  1.c 2.c del_list [???]                          ',&
+'Call as:  del_c  1.c 2.c del_list [flag=..]                      ',&
 '                                                                 ',&
 'Default:  del_c  cfg.out cfg.inp del_list                        ',&
 '                                                                 ',&
-'Additional feature:  log-file after ci_bnk may be used as del_list !',&
+'Additional feature: log-file after ci_bnk may be used as del_list !',&
 '                                                                  ',&
 '                                                                 '
       Stop ' '

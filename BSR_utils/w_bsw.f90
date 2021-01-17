@@ -47,9 +47,9 @@
      
       if(iarg.eq.0.or.AF.eq.'?') then
         write(*,'(/a)') 'w_bsw  converts  name.w  to name.bsw'
-        write(*,'(/a)') 'w   - unformatted MCHF-CFF format for radial functions'
-        write(*,'(/a)') 'bsw - BSR format for radial functions'
-        write(*,'(/a)') 'Call as:  w_bsw  name.w [eps_end  klagr]'
+        write(*,'(/a)') 'name.w   - unformatted MCHF-CFF format for radial functions'
+        write(*,'(/a)') 'name.bsw - BSR format for radial functions'
+        write(*,'(/a)') 'Call as:  w_bsw  name.w [eps_end=..  klagr=..]'
         write(*,'(/a)') 'Results:  name.bsw'
         write(*,'(/a)') 'eps_end - tolerance for function tail [1.D-7]'
         write(*,'(/a)') 'klagr   - index for Lagrange interpolation [20]'

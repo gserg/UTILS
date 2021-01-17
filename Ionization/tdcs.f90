@@ -718,14 +718,12 @@
 !======================================================================
 !     provide screen information about add_farm utility
 !----------------------------------------------------------------------
-      Implicit real(8) (a-h,o-z)
-
       Character(80) :: A
 
       Call get_command_argument(1,A)  
       if(A.ne.'?') Return
 
-      write(*,*) &
+      write(*,'(a)') &
 '                                                                  ',&
 'tdcs calculates triple differential cross section for ionization  ',&
 'of He or other closed-shell atoms, using the projection method    ',&

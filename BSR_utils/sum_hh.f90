@@ -16,12 +16,6 @@
 
       Character(80) :: AF
 
-! ... files:
-
-      in=1
-      iout=2; Open(iout,file='H.DAT',form='UNFORMATTED')
-      ipri=9; Open(ipri,file='sum_hh.log')
-  
 ! ... Check the arguments:
 
       Call get_command_argument(1,AF)  
@@ -39,6 +33,13 @@
        write(*,*)
        Stop ' '
       end if
+
+! ... files:
+
+      in=1
+      iout=2; Open(iout,file='H.DAT',form='UNFORMATTED')
+      ipri=9; Open(ipri,file='sum_hh.log')
+  
 
       Call Read_iarg('ih1',ih1)
       Call Read_iarg('ih2',ih2)

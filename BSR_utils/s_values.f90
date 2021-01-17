@@ -4,7 +4,7 @@
 !     generate the oscillator strengths (dipole only) 
 !     based on the asymptotic coefficients saved in the H.DAT file
 !
-!     target,  H.DAT   ->   s_values,  s_values_###
+!     target,  H.DAT, {h.nnn}   ->   s_values,  s_values_nnn
 !-----------------------------------------------------------------------
       Use target
       Use channels
@@ -22,7 +22,7 @@
         write(*,'(a)') 'generation dipole mtrix elements for transition between target states'
         write(*,'(a)') 'based on the asymptotic coefficients saved in the H.DAT file'
         write(*,*)
-        write(*,'(a)') 'target,  H.DAT   ->   s_values,  s_values_###T' 
+        write(*,'(a)') 'target,  H.DAT or {h.nnn}   ->   s_values,  s_values_nnn' 
         write(*,*)
         write(*,'(a)') 'Call as: s_values klsp1=... klsp2=... L1=... L2=...  h=...'
         write(*,*)
@@ -147,22 +147,17 @@
       Real(8) :: S,SS, g1,g2, de, a,f, eps_acf
       Integer :: i,j, i1,i2,nt, pri, km, nchan, nut, klsp, k,ij, np,ni
       Character(100) :: line
-write(81,*) 'klsp=',klsp
-      Call R_channel(nut,klsp)
 
-write(81,*) 'nch=',nch
+      Call R_channel(nut,klsp)
 
       AK=0.d0; IP=0; RDME=0.d0
       Do i=1,nch-1; Do j=i+1,nch
        S=ACF(i,j,1)/2.d0; 
        i1=iptar(i); i2=iptar(j)
        if(abs(S).lt.eps_acf) Cycle
-write(81,*) i,j,S
        if(i1.gt.ni.and.i2.gt.np) Cycle
 
        SS = Reduce_factor(i,j,1)
-
-write(81,*) 'SS', SS
 
        if(abs(SS).lt.eps_acf) Cycle
        S = S / SS

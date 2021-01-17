@@ -1,6 +1,6 @@
 include ${HOME}/DEFS_03
  
-N  = bsr_sen1
+N  = bsr_sen
  
 # Libraries to be searched:
  
@@ -8,7 +8,7 @@ L  =   $(ZCONFLS) $(ZCOM) $(LAPACK)
 
 S  =	mod_ovl.f90            bsr_sen.f90         read_data.f90   \
 	read_Hdat.f90          rm_ovlF.f90         rovl_out.f90    \
-        sub_sct.f90            zaface.f90  
+     sub_sct.f90            zaface.f90  
  
 O = $(S:.f90=.o) crees.o
 

@@ -165,7 +165,7 @@
 !======================================================================
       Subroutine bsr_se1_inf
 !======================================================================
-!     provide screen information about bound_tab utility
+!     provide screen information about bsr_se1 utility
 !----------------------------------------------------------------------
       Character(80) :: A
 

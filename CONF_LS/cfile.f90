@@ -37,9 +37,10 @@
 
 !----------------------------------------------------------------------
 !                                                           input data:
-      iarg = COMMAND_ARGUMENT_COUNT() 
-
-      if(iarg.lt.5) then
+      iarg = command_argument_count() 
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AF)
+ 
+      if(AF.eq.'?'.or.iarg.lt.5) then
         write(*,'(/a)') 'cfile extracts the solution from l(j)-file in separate c-file' 
         write(*,'(/a)') 'Call as:    cfile name.l(j) index 2J name.c eps_c'
         write(*,'(/a)') 'name.l(j) - input file with solutions'

@@ -1,5 +1,5 @@
 !----------------------------------------------------------------------
-!     target, rsol.nnn  --> rsol.all
+!     rsol.nnn  --> rsol.all
 !----------------------------------------------------------------------
 
       Implicit real(8) (A-H,O-Z)
@@ -9,6 +9,17 @@
       Integer, allocatable :: nchn(:), nstk(:)
       Real(8), allocatable :: v(:)
 
+      iarg = COMMAND_ARGUMENT_COUNT()
+      if(iarg.gt.0) Call GET_COMMAND_ARGUMENT(1,AF)
+
+      if(AF.eq.'?') then
+        write(*,'(/a)') 'collect_rsol merges the set of rsol.nnn file in one rsol.all'
+        write(*,'(/a)') '     rsol.nnn  -->  rsol.all'
+        write(*,'(/a)') 'Call as:  collect_rsol  nlsp=..,  where nlsp the number of partial waves'
+        write(*,'(/a)') 
+        Stop 
+      end if        
+                                                        
       Call Read_iarg('nlsp',nlsp)
       if(nlsp.le.0) Stop 'nlsp <= 0'
 

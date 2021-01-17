@@ -99,7 +99,7 @@
          S = S + WT(ich)
         End do
 
-! ??? re-normalization to 1 
+! ... re-normalization to 1 
 
         if(jopen.gt.0.and.jopen.lt.kwt.and.S.gt.0.d0) then
          SS = SUM(WT(jopen+1:kwt))/S
