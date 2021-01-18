@@ -52,8 +52,6 @@
 
       end if
 
-write(*,*) 'Alloc:',m,ndata,mdata
-
       End Subroutine alloc_data_list
 
 
@@ -107,11 +105,11 @@ write(*,*) 'Alloc:',m,ndata,mdata
 
 
 !=====================================================================
-!     UTILITY  get1tdonejj
+!     UTILITY  gettdonejj
 !=====================================================================
 !
-!     get 'tmat.done' file for 1 energy from 'zarm.tma'
-!     with jj-coupling
+!     get 'tmat.done' file for set of energies from 'zarm.tma'
+!     in case of jj-coupling
 !
 !---------------------------------------------------------------------
 
@@ -120,6 +118,8 @@ write(*,*) 'Alloc:',m,ndata,mdata
       Implicit real(8) (A-H,O-Z)
 
       Real(8), Allocatable, Dimension(:) :: matr,mati 
+
+      Call inf_screen
 
 !----------------------------------------------------------------------
 ! ... target information:
@@ -344,3 +344,30 @@ end if
       k = jk2(i); jk2(i)=jk2(j); jk2(j)=k
 
       End Subroutine Change_ij
+
+!======================================================================
+      Subroutine inf_screen
+!======================================================================
+!     provides screen information about the utility
+!----------------------------------------------------------------------
+      Character :: A
+
+      Call get_command_argument(1,A)  
+      if(A.ne.'?') Return
+
+      write(*,'(a)') &
+'                                                            ',&
+' gettdonejj gets "tmat.done" file for set of energies from  ',&
+' "zarm.tma" file in case of jj-coupling                     ',&
+'                                                            ',&        
+' Call as: gettdonejj itr1=.. itr2=..  ek1=..  ek2=..]       ',&
+'                                                            ',&        
+' itr1  - index of initial state (default - 1)               ',&
+' itr2  - index of final state  (default - 1)                ',&
+' ek1   - minimum electron energy in Ry                      ',&
+' ek2   - minimum electron energy in Ry                      ',&
+'                                                            '        
+      Stop ' '
+
+      End Subroutine inf_screen
+

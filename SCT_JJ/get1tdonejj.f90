@@ -112,6 +112,7 @@
       Real(8), allocatable :: matr(:),mati(:) 
       Real(8) ::  eps_e = 1.d-7
 
+      Call Inf_screen
 !----------------------------------------------------------------------
 ! ... target and channels information:
 
@@ -125,8 +126,8 @@
 
 ! ... define transition and energy under consideration:
 
-      Call Read_iarg('itr1' ,itr1 )
-      Call Read_iarg('itr2' ,itr2 )
+      itr1=1; Call Read_iarg('itr1' ,itr1 )
+      itr2=1; Call Read_iarg('itr2' ,itr2 )
       Call Read_rarg('ek1'  ,ek1  )
       Call Read_rarg('eps_e',eps_e)
 
@@ -248,5 +249,29 @@
       End  ! UTILITY  get1tdonejj
 
 
+!======================================================================
+      Subroutine inf_screen
+!======================================================================
+!     provides screen information about the utility
+!----------------------------------------------------------------------
+      Character :: A
 
- 
+      Call get_command_argument(1,A)  
+      if(A.ne.'?') Return
+
+      write(*,'(a)') &
+'                                                            ',&
+' get1tdonejj gets "tmat.done" file for 1 energy from        ',&
+' "zarm.tma" file in case of jj-coupling                     ',&
+'                                                            ',&        
+' Call as: get1tdonejj itr1=.. itr2=..  ek1=..  [eps_e=..]   ',&
+'                                                            ',&        
+' itr1  - index of initial state (default - 1)               ',&
+' itr2  - index of final state  (default - 1)                ',&
+' ek1   - electron energy in Ry                              ',&
+' eps_e - tolerance for electron energy [1.d-7]              ',&
+'                                                            '        
+      Stop ' '
+
+      End Subroutine inf_screen
+
