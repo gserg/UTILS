@@ -134,3 +134,6 @@ zf_bb_bsr_mpi: zf_bb_bsr_mpi.f90
 #-fbacktrace -fcheck=bounds
   
   
+photo_taba: photo_taba.f90
+	$(FC) -o $@ $(link)  $< $(ZCONFLS) $(ZCOM) 
+	mv $@ $(BINDIR)

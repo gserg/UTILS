@@ -19,6 +19,7 @@
       Real(8), parameter :: Ry = 13.6056
 
       Character(80)  :: AS,AT,AF, label = ' ', sigma = 'sigma'
+      Character(3) :: AA = 'tr_'
 
 ! ... files:
 
@@ -39,15 +40,16 @@
       np=ntarg; Call Read_ipar(nut,'np',np)
       ni=ntarg; Call Read_ipar(nut,'ni',ni)
       Close(nut)
+
       ion = nz-nelc; zion=1.d0; if(ion.ne.0) zion=ion*ion
       E1 = etarg(1); etarg = (etarg-E1)*2.0
-
       Z = nz;  AWT = 0.d0
+
       Call Conv_au (Z,AWT,au_cm,au_eV,0)
 
 ! ... define units for output:
 
-      i16 = 16;  Call Read_aarg('i16',i16)
+      i16 = 16;  Call Read_iarg('i16',i16)
 
 ! ... additional label if any:
 
@@ -61,11 +63,10 @@
 
       i11 = 1; Call Read_iarg('itr1',i11)  
       i12 = 0; Call Read_iarg('itr2',i12);  if(i12.eq.0) i12=ntarg
-      i21 = 2; Call Read_iarg('jtr1',i21)  
+      i21 = 1; Call Read_iarg('jtr1',i21)  
       i22 = 0; Call Read_iarg('jtr2',i22);  if(i22.eq.0) i22=ntarg
 
       if(i12.gt.np) i12=np
-
 !-----------------------------------------------------------------------
 ! ... read omega:
 
@@ -80,6 +81,9 @@
       write(*,'(a,a)') 'Used  ',trim(AF)
       Call Check_file(AF)
       open(nut,file=AF)
+
+      if(AF.eq.'zarm.omb_top') AA='cr_'
+
 
       mdim = ntarg*(ntarg+1)/2;  Allocate(matr(mdim))
 
@@ -136,7 +140,7 @@
         om(ne) = ome(iom(i-1)+itr)
        End do
 
-       e(0:ne) = e(0:ne) - Etarg(itr2);  de = Etarg(itr2)-Etarg(itr1)
+       de = Etarg(itr2)-Etarg(itr1)
 
 ! ... output:
 
@@ -144,9 +148,9 @@
 
 ! ... define name for output file:
 
-      write(AF_tr,'(a,i3.3,a,i3.3,a)') 'tr_',i1,'_',i2
+      write(AF_tr,'(a,i3.3,a,i3.3,a)') AA,i1,'_',i2
       if(ilabel.gt.0) &
-      write(AF_tr,'(a,i3.3,a,i3.3,a,a,a)') 'tr_',i1,'_',i2,'.',trim(label)
+      write(AF_tr,'(a,i3.3,a,i3.3,a,a,a)') AA,i1,'_',i2,'.',trim(label)
 
       Open(out,file=AF_tr)
 
@@ -171,7 +175,7 @@
 
       if(ion.eq.0.and.i1.ne.i2) &
        write(out,'(f14.8,e16.8,f12.6,e16.8)') &
-        (etarg(i2)-etarg(i1))*Ry,0.d0,etarg(i2),0.d0  
+        etarg(i2)*Ry,0.d0,etarg(i2),0.d0  
 
       Do ie=1,ne;   if(om(ie).eq.0.d0) Cycle
        es=e(ie)-etarg(i1)
@@ -182,10 +186,10 @@
 
        if(ion.eq.0) then
         write(out,'(f14.8,e16.8,f12.6,e16.8,f12.6)') &
-                          (e(ie)-etarg(i1))*Ry,s,e(ie),om(ie)    
+                          e(ie)*Ry,s,e(ie),om(ie)    
        else
         write(out,'(f14.8,e16.8,f12.6,e16.8,f12.6)') &
-                          (e(ie)-etarg(i1))*Ry,s,e(ie),om(ie),e(ie)/zion   
+                          e(ie)*Ry,s,e(ie),om(ie),e(ie)/zion   
        end if
 
       End do

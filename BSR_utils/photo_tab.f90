@@ -233,7 +233,7 @@ CONTAINS
 
        if(ii.eq.0) IP_energy(ie) = 1
 
-       if(CL.gt.1000) IP_energy(ie) = 1
+!       if(CL.gt.1000) IP_energy(ie) = 1
 
        if(IP_energy(ie).eq.1) Cycle
 

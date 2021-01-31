@@ -84,8 +84,8 @@
       Do j=1,ntarg; i=ip_exp(j); jp_exp(i) = j
        E_Ry = (etarg(i)-etarg(1))*2
        E_eV = (etarg(i)-etarg(1))*au_eV
-       write(nut,'(a20,1x,a10,1x,3i4,f18.8,f10.6,f10.3)') BFT(i),AFT(i), &
-        ltarg(i),istarg(i),iptarg(i),etarg(i), E_Ry, E_eV
+       write(nut,'(a20,1x,a10,1x,3i4,f18.8,2i5,f10.6,f10.3)') BFT(i),AFT(i), &
+        ltarg(i),istarg(i),iptarg(i),etarg(i), nctarg(i),nwtarg(i), E_Ry, E_eV
       End do
       write(nut,'(72(''-''))')
       write(nut,'(a,i5,T18,a)') 'nct    =',nct, &
@@ -134,6 +134,8 @@
        End do
 
        write(nut,'(80(''-''))')
+
+       write(nut,'(a,i9)') 'max_ch =',mch 
 
        deallocate(npch,nptar)
 
